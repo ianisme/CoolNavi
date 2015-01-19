@@ -1,2 +1,3 @@
 #CoolNavi
-说明未完待续...
+<img src="https://coding.net/u/ianisme/p/CoolNavi/git/raw/master/Demo.gif"  alt="效果演示byiAn" />
+<p>此Demo是模仿网易新闻APP效果.</p>
