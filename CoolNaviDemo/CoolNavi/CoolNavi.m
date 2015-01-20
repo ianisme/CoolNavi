@@ -36,7 +36,10 @@
         [_headerImageView sd_setImageWithURL:[NSURL URLWithString:headerImageURL]];
         [_headerImageView.layer setMasksToBounds:YES];
         _headerImageView.layer.cornerRadius = _headerImageView.frame.size.width/2.0f;
-        
+        _headerImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [_headerImageView addGestureRecognizer:tap];
+
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0.6*frame.size.height, frame.size.width, frame.size.height*0.2)];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.font = [UIFont systemFontOfSize:14];
@@ -61,7 +64,8 @@
 
 }
 
--(void)willMoveToSuperview:(UIView *)newSuperview{
+-(void)willMoveToSuperview:(UIView *)newSuperview
+{
     [[self.viewController navigationController] setNavigationBarHidden:YES];
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:(NSKeyValueObservingOptionNew) context:Nil];
     self.scrollView.contentInset = UIEdgeInsetsMake(self.frame.size.height, 0 ,0, 0);
@@ -69,12 +73,14 @@
 
 
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
     CGPoint newOffset = [change[@"new"] CGPointValue];
     [self updateSubViewsWithScrollOffset:newOffset];
 }
 
--(void)updateSubViewsWithScrollOffset:(CGPoint)newOffset{
+-(void)updateSubViewsWithScrollOffset:(CGPoint)newOffset
+{
     
     float destinaOffset = -64;
     float startChangeOffset = -self.scrollView.contentInset.top;
@@ -97,6 +103,11 @@
     
     self.titleLabel.frame = CGRectMake(0, 0.6*self.frame.size.height+(titleDestinateOffset-0.45*self.frame.size.height)*(1-alpha), self.frame.size.width, self.frame.size.height*0.2);
     self.subTitleLabel.frame = CGRectMake(0, 0.75*self.frame.size.height+(titleDestinateOffset-0.45*self.frame.size.height)*(1-alpha), self.frame.size.width, self.frame.size.height*0.1);
+}
+
+- (void)tapAction:(id)sender
+{
+    self.imgActionBlock();
 }
 
 

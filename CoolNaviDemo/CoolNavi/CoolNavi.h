@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface CoolNavi : UIView
+
 @property (nonatomic, strong) UIViewController *viewController;
 @property (nonatomic, strong) UIScrollView *scrollView;
+// image action
+@property (nonatomic, copy) void(^imgActionBlock)();
 
 - (id)initWithFrame:(CGRect)frame backGroudImage:(NSString *)backImageName headerImageURL:(NSString *)headerImageURL title:(NSString *)title subTitle:(NSString *)subTitle;
 
