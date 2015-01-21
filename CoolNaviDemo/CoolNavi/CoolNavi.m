@@ -97,9 +97,9 @@
     self.frame = CGRectMake(0, newY, self.frame.size.width, self.frame.size.height);
     self.backImageView.frame = CGRectMake(0, -0.5*self.frame.size.height+(1.5*self.frame.size.height-64)*(1-alpha), self.backImageView.frame.size.width, self.backImageView.frame.size.height);
     
-    self.headerImageView.frame = CGRectMake(self.frame.size.width*0.5-self.headerImageView.frame.size.width/2, 0.27*self.frame.size.height+(titleDestinateOffset-0.27*self.frame.size.height)*(1-alpha), 70*imageReduce, 70*imageReduce);
-    [_headerImageView.layer setMasksToBounds:YES];
-    _headerImageView.layer.cornerRadius = _headerImageView.frame.size.width/2.0f;
+    CGAffineTransform t = CGAffineTransformMakeTranslation(0,(titleDestinateOffset-0.35*self.frame.size.height)*(1-alpha));
+    _headerImageView.transform = CGAffineTransformScale(t,
+                                                        imageReduce, imageReduce);
     
     self.titleLabel.frame = CGRectMake(0, 0.6*self.frame.size.height+(titleDestinateOffset-0.45*self.frame.size.height)*(1-alpha), self.frame.size.width, self.frame.size.height*0.2);
     self.subTitleLabel.frame = CGRectMake(0, 0.75*self.frame.size.height+(titleDestinateOffset-0.45*self.frame.size.height)*(1-alpha), self.frame.size.width, self.frame.size.height*0.1);
