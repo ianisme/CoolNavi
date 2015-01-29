@@ -66,7 +66,6 @@
 
 -(void)willMoveToSuperview:(UIView *)newSuperview
 {
-    [[self.viewController navigationController] setNavigationBarHidden:YES];
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:(NSKeyValueObservingOptionNew) context:Nil];
     self.scrollView.contentInset = UIEdgeInsetsMake(self.frame.size.height, 0 ,0, 0);
     self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
