@@ -106,7 +106,9 @@
 
 - (void)tapAction:(id)sender
 {
-    self.imgActionBlock();
+    if (self.imgActionBlock) {
+        self.imgActionBlock();
+    }
 }
 
 
