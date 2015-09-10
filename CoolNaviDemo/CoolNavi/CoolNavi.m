@@ -13,7 +13,7 @@
 @property (nonatomic, strong) UIImageView *backImageView;
 @property (nonatomic, strong) UIImageView *headerImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic,strong) UILabel *subTitleLabel;
+@property (nonatomic, strong) UILabel *subTitleLabel;
 @property (nonatomic, assign) CGPoint prePoint;
 
 @end
@@ -67,7 +67,7 @@
 -(void)willMoveToSuperview:(UIView *)newSuperview
 {
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:(NSKeyValueObservingOptionNew) context:Nil];
-    self.scrollView.contentInset = UIEdgeInsetsMake(self.frame.size.height, 0 ,0, 0);
+    self.scrollView.contentInset = UIEdgeInsetsMake(self.frame.size.height, 0 ,0 , 0);
     self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
 }
 
