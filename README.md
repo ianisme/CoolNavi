@@ -1,8 +1,6 @@
 #CoolNavi
 
 ### 说明：
-- 请star Github 以保证获得最新的代码
-- https://github.com/ianisme/CoolNavi
 - 此Demo是模仿网易新闻APP网友信息页面效果。
 
 ### 功能如下：
