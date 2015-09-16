@@ -32,7 +32,7 @@
         _backImageView.image = [UIImage imageNamed:backImageName];
         _backImageView.contentMode = UIViewContentModeScaleAspectFill;
         
-        _headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-70/2, 0.27*frame.size.height, 70, 70)];
+        _headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-70*0.5, 0.27*frame.size.height, 70, 70)];
         [_headerImageView sd_setImageWithURL:[NSURL URLWithString:headerImageURL]];
         [_headerImageView.layer setMasksToBounds:YES];
         _headerImageView.layer.cornerRadius = _headerImageView.frame.size.width/2.0f;
@@ -82,26 +82,26 @@
 -(void)updateSubViewsWithScrollOffset:(CGPoint)newOffset
 {
     
-    float destinaOffset = -64;
-    float startChangeOffset = -self.scrollView.contentInset.top;
+    CGFloat destinaOffset = -64;
+    CGFloat startChangeOffset = -self.scrollView.contentInset.top;
     newOffset = CGPointMake(newOffset.x, newOffset.y<startChangeOffset?startChangeOffset:(newOffset.y>destinaOffset?destinaOffset:newOffset.y));
     
-    float titleDestinateOffset = self.frame.size.height-40;
-    float newY = -newOffset.y-self.scrollView.contentInset.top;
-    float d = destinaOffset-startChangeOffset;
-    float alpha = 1-(newOffset.y-startChangeOffset)/d;
-    float imageReduce = 1-(newOffset.y-startChangeOffset)/(d*2);
+    CGFloat subviewOffset = self.frame.size.height-40; // 子视图的偏移量
+    CGFloat newY = -newOffset.y-self.scrollView.contentInset.top;
+    CGFloat d = destinaOffset-startChangeOffset;
+    CGFloat alpha = 1-(newOffset.y-startChangeOffset)/d;
+    CGFloat imageReduce = 1-(newOffset.y-startChangeOffset)/(d*2);
     self.subTitleLabel.alpha = alpha;
     self.titleLabel.alpha = alpha;
     self.frame = CGRectMake(0, newY, self.frame.size.width, self.frame.size.height);
     self.backImageView.frame = CGRectMake(0, -0.5*self.frame.size.height+(1.5*self.frame.size.height-64)*(1-alpha), self.backImageView.frame.size.width, self.backImageView.frame.size.height);
     
-    CGAffineTransform t = CGAffineTransformMakeTranslation(0,(titleDestinateOffset-0.35*self.frame.size.height)*(1-alpha));
+    CGAffineTransform t = CGAffineTransformMakeTranslation(0,(subviewOffset-0.35*self.frame.size.height)*(1-alpha));
     _headerImageView.transform = CGAffineTransformScale(t,
                                                         imageReduce, imageReduce);
     
-    self.titleLabel.frame = CGRectMake(0, 0.6*self.frame.size.height+(titleDestinateOffset-0.45*self.frame.size.height)*(1-alpha), self.frame.size.width, self.frame.size.height*0.2);
-    self.subTitleLabel.frame = CGRectMake(0, 0.75*self.frame.size.height+(titleDestinateOffset-0.45*self.frame.size.height)*(1-alpha), self.frame.size.width, self.frame.size.height*0.1);
+    self.titleLabel.frame = CGRectMake(0, 0.6*self.frame.size.height+(subviewOffset-0.45*self.frame.size.height)*(1-alpha), self.frame.size.width, self.frame.size.height*0.2);
+    self.subTitleLabel.frame = CGRectMake(0, 0.75*self.frame.size.height+(subviewOffset-0.45*self.frame.size.height)*(1-alpha), self.frame.size.width, self.frame.size.height*0.1);
 }
 
 - (void)tapAction:(id)sender
