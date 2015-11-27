@@ -10,3 +10,5 @@
 
 ### 效果演示：
 <img src="https://coding.net/u/ianisme/p/CoolNavi/git/raw/master/Demo.gif"  alt="效果展示by ian" height="568" width="320" />
+### Swift版：
+https://github.com/ianisme/CoolNaviDemo_Swift
