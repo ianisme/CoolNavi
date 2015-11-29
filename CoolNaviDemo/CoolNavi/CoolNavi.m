@@ -64,6 +64,11 @@
 
 }
 
+- (void)dealloc
+{
+    [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+}
+
 -(void)willMoveToSuperview:(UIView *)newSuperview
 {
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:(NSKeyValueObservingOptionNew) context:Nil];
