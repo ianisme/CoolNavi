@@ -9,10 +9,10 @@
 #import "ViewController.h"
 #import "CoolNavi.h"
 
-CGFloat const kWindowHeight = 205.0f;
-NSUInteger const kCellNum = 40;
-NSUInteger const kRowHeight = 44;
-NSString * const kCellIdentify = @"cell";
+static CGFloat const kWindowHeight = 205.0f;
+static NSUInteger const kCellNum = 40;
+static NSUInteger const kRowHeight = 44;
+static NSString * const kCellIdentify = @"cell";
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 

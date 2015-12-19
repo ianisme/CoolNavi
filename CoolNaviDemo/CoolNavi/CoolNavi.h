@@ -10,7 +10,7 @@
 
 @interface CoolNavi : UIView
 
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, weak) UIScrollView *scrollView;
 // image action
 @property (nonatomic, copy) void(^imgActionBlock)();
 
