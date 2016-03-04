@@ -1,4 +1,4 @@
-#CoolNavi
+# CoolNavi [![star this repo](http://github-svg-buttons.herokuapp.com/star.svg?user=ianisme&repo=CoolNavi&style=flat&background=1081C1)](https://github.com/ianisme/CoolNavi) [![fork this repo](http://github-svg-buttons.herokuapp.com/fork.svg?user=ianisme&repo=CoolNavi&style=flat&background=1081C1)](https://github.com/ianisme/CoolNavi/fork)
 
 ### 说明：
 - 简单实现一个炫酷的个人中心界面
